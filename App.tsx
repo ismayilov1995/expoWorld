@@ -5,30 +5,50 @@ import Card from './src/components/Card.js';
 
 export default class App extends Component {
 
+    state = {
+        name: 'Shihsa',
+        number: 0
+    };
+
     onPressDetail = () => {
-        alert('Detail');
+        this.setState({
+            name: 'Misha',
+        });
+    };
+
+    onPressIncrease = () => {
+        this.setState({
+            number: ++this.state.number,
+        });
+    };
+
+    onPressDecrease = () => {
+        this.setState({
+            number: --this.state.number,
+        });
     };
 
     render() {
         return (
             <View style={styles.container}>
                 <Card text='Drink' backgroundColor='white'/>
-                <Card text='Food'/>
-                <Card text='Salad' backgroundColor='red'/>
-                <Card text='Soup'/>
-                <Card text='Shisha'/>
-K
+                <Card text='Food' />
+                <Card text='Soup' />
+                <Card text={this.state.name} />
                 <Button
-                    title='detail'
+                    title='Change The Menu'
                     color='#000'
                     onPress={this.onPressDetail}
                 />
+                <View style={styles.buttonView}>
+                    <Button title='Decrease' onPress={this.onPressDecrease}/>
+                    <Card text={this.state.number} />
+                    <Button title='Increase' onPress={this.onPressIncrease}/>
+                </View>
             </View>
         );
     }
-
 }
-
 
 const styles = StyleSheet.create({
     container: {
@@ -38,5 +58,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    buttonView: {
+        padding: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+    }
 
 });

@@ -16,7 +16,7 @@ export default class Card extends Component {
 }
 
 Card.propTypes = {
-    text: PropTypes.string.isRequired,
+    //text: PropTypes.string.isRequired,
     backgroundColor: PropTypes.string
 };
 
