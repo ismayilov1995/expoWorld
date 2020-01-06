@@ -4,34 +4,50 @@ import {StyleSheet, Text, View} from 'react-native';
 export default function App() {
     return (
         <View style={styles.container}>
-            <Text>Salam Dunya</Text>
-            <Text>Necesiz?</Text>
-            <View style={[styles.box, styles.box1]}>
+            <View style={styles.slideOne}>
             </View>
-            <View style={[styles.box, styles.box2]}>
+            <View style={styles.slideTwo}>
+                <View style={[styles.box, styles.box1]}>
+
+                </View>
+                <View style={[styles.box, styles.box2]}>
+
+                </View>
+                <View style={[styles.box, styles.box3]}>
+
+                </View>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    // Flex butun ekrani migyasla bolur
     container: {
-        paddingTop: 45,
-        backgroundColor: '#ffa500',
+        backgroundColor: '#282a36',
         flex: 1,
+        flexDirection: 'column',
+    },
+    slideOne: {
+        backgroundColor: '#282a36',
+        flex: 1,
+    },
+    slideTwo: {
+        backgroundColor: '#d52a29',
+        flex: 2,
+        flexDirection: 'row'
     },
     box: {
         width: 150,
-        height: 150,
-        marginBottom: 10,
-        borderWidth: 5,
-        borderRadius: 10,
-        borderColor: 'white',
+        height: 150
     },
     box1: {
-        backgroundColor: 'aquamarine',
+        backgroundColor: '#151a54'
     },
     box2: {
-        backgroundColor: 'blue',
+        backgroundColor: '#754865'
+    },
+    box3: {
+        backgroundColor: 'white'
     },
 });
