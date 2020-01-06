@@ -1,55 +1,42 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import Card from './src/components/Card.js';
 
-export default function App() {
-    return (
-        <View style={styles.container}>
-            <View style={styles.slideOne}>
-                <Text>Salam</Text>
+
+export default class App extends Component {
+
+    onPressDetail = () => {
+        alert('Detail');
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <Card text='Drink' backgroundColor='white'/>
+                <Card text='Food'/>
+                <Card text='Salad' backgroundColor='red'/>
+                <Card text='Soup'/>
+                <Card text='Shisha'/>
+K
+                <Button
+                    title='detail'
+                    color='#000'
+                    onPress={this.onPressDetail}
+                />
             </View>
-            <View style={styles.slideTwo}>
-                <View style={[styles.box, styles.box1]}>
-                </View>
-                <View style={[styles.box, styles.box2]}>
-                </View>
-                <View style={[styles.box, styles.box3]}>
-                </View>
-            </View>
-        </View>
-    );
+        );
+    }
+
 }
 
+
 const styles = StyleSheet.create({
-    // Flex butun ekrani migyasla bolur
     container: {
-        backgroundColor: '#282a36',
+        backgroundColor: '#FFEB3B',
         flex: 1,
         flexDirection: 'column',
-    },
-    slideOne: {
-        backgroundColor: '#607D8B',
-        flex: 1,
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         alignItems: 'center',
     },
-    slideTwo: {
-        backgroundColor: '#d52a29',
-        flex: 2,
-        flexDirection: 'row',
-        justifyContent: 'space-around', //flex-start, flex-end, space-between, center
-        alignItems: 'center', //flex-start, flex-end, stretch
-    },
-    box: {
-        width: 100,
-        height: 100
-    },
-    box1: {
-        backgroundColor: '#151a54'
-    },
-    box2: {
-        backgroundColor: '#754865'
-    },
-    box3: {
-        backgroundColor: 'white'
-    },
+
 });
