@@ -5,16 +5,14 @@ export default function App() {
     return (
         <View style={styles.container}>
             <View style={styles.slideOne}>
+                <Text>Salam</Text>
             </View>
             <View style={styles.slideTwo}>
                 <View style={[styles.box, styles.box1]}>
-
                 </View>
                 <View style={[styles.box, styles.box2]}>
-
                 </View>
                 <View style={[styles.box, styles.box3]}>
-
                 </View>
             </View>
         </View>
@@ -29,17 +27,21 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     slideOne: {
-        backgroundColor: '#282a36',
+        backgroundColor: '#607D8B',
         flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
     },
     slideTwo: {
         backgroundColor: '#d52a29',
         flex: 2,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-around', //flex-start, flex-end, space-between, center
+        alignItems: 'center', //flex-start, flex-end, stretch
     },
     box: {
-        width: 150,
-        height: 150
+        width: 100,
+        height: 100
     },
     box1: {
         backgroundColor: '#151a54'
