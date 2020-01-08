@@ -1,18 +1,31 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, Button, TouchableOpacity} from 'react-native';
 import Card from './src/components/Card.js';
 
 
 export default class App extends Component {
+
+    _onPressImage = () => {
+        alert('Test');
+    };
+
     render() {
         return (
             <View style={styles.container}>
-                <Image
-                    source={require('./src/assets/logo.png')} />
-                <Image
-                    resizeMode={'repeat'}
-                    style={{ width: '100%', height: 200, borderWidth: 2, borderColor: 'black' }}
-                    source={{ uri: 'https://bower.io/img/bower-logo.png'}} />
+                <TouchableOpacity onPress={this._onPressImage}>
+                    <View style={styles.buttonContainer}>
+                        <Text style={styles.buttonTitle}>My Button</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={this._onPressImage}
+                >
+                    <Image
+                        resizeMode={'center'}
+                        style={{width: 100, height: 100}}
+                        source={require('./src/assets/logo.png')}/>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -35,6 +48,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    buttonTitle: {
+        fontSize: 36,
+    },
+    buttonContainer: {
+        padding: 15,
+        backgroundColor: 'orange',
+        borderRadius: 10,
     },
 
 });
