@@ -1,45 +1,52 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, Button, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
 import Card from './src/components/Card.js';
 
 
 export default class App extends Component {
 
+    state = {
+        name: ''
+    };
+
     _onPressImage = () => {
         alert('Test');
     };
 
+    // _onChangeText = text => {
+    //     this.setState({
+    //         name: text,
+    //     });
+    //
+    // };
+
     render() {
+
+        const {name} = this.state;
+
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this._onPressImage}>
-                    <View style={styles.buttonContainer}>
-                        <Text style={styles.buttonTitle}>My Button</Text>
-                    </View>
-                </TouchableOpacity>
+                <Text>{name}</Text>
+                <TextInput
+                    value={name}
+                    placeholder='Type anything'
+                    autoCapitalize={"sentences"}
+                    onChangeText={text => {
+                        this.setState({
+                            name: text,
+                        });
+                    }}
+                    style={styles.myInput}/>
 
-                <TouchableOpacity
-                    onPress={this._onPressImage}
-                >
-                    <Image
-                        resizeMode={'center'}
-                        style={{width: 100, height: 100}}
-                        source={require('./src/assets/logo.png')}/>
-                </TouchableOpacity>
+                <TextInput
+                    keyboardAppearance= 'dark' // Keyboard Theme
+                    keyboardType={"number-pad"}
+                    secureTextEntry={true}
+                    style={styles.myInput}/>
             </View>
         );
     }
 }
-
-/*
-Image Crop
-resizeMode={'contain'}
-    - contain
-    - cover
-    - center
-    - repeat
-    - stretch
- */
 
 const styles = StyleSheet.create({
     container: {
@@ -49,13 +56,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    buttonTitle: {
-        fontSize: 36,
-    },
-    buttonContainer: {
-        padding: 15,
-        backgroundColor: 'orange',
+    myInput: {
+        width: '80%',
+        height: 40,
+        borderWidth: 2,
         borderRadius: 10,
+        borderColor: 'white',
+        paddingHorizontal: 10,
+        marginBottom: 20,
+
     },
 
 });
